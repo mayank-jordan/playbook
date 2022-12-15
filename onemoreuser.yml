@@ -1,0 +1,14 @@
+---
+- name: create user
+  hosts: all
+  become: true
+  tasks:
+    - name: creta user rohit
+      user: name=rohit
+~
+~
+~
+~
+~
+~
+
