@@ -1,0 +1,10 @@
+---
+- name: my test playbook
+  hosts: all
+  become: true
+  vars:
+    user: sunny
+  tasks:
+    - name: create user {{user}}
+      user:
+        name: "{{user}}"

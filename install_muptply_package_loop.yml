@@ -1,0 +1,9 @@
+---
+- name: my test playbook
+  hosts: all
+  become: true
+  tasks:
+    - name: install multply package
+      yum:
+        name: ["git" , "make" , "gcc" , "wget" , "telnet" , "mysql" , "tree" , "which" , "docker*"]
+        state: present

@@ -1,0 +1,11 @@
+---
+- name: my playbook
+  hosts: all
+    # become: true
+  tasks:
+    - name: install a package
+      yum:
+        name: httpd
+        state: present
+
+

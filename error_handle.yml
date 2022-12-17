@@ -1,0 +1,39 @@
+---
+- name: error handling
+  hosts: all
+  become: true
+  tasks:
+    - name: install httpd
+      yum:
+        name: httpd
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: start httpd service
+      service:
+        name: htt--
+        state: started
+      when: ansible_os_family == "RedHat"
+      ignore_errors: yes
+
+    - name: install apache2
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: start service
+      service:
+        name: apache2
+        state: present
+      when: ansible_os_family == "Debian"
+      
+
+    - name: copy index file
+      copy:
+        src: /home/ansadmin/playbook/index.html
+        dest: /var/www/html/
+
+
+
+
